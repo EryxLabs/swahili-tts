@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <title>Eryx Swahili TTS Test</title>
+    <style>
+        body { font-family: system-ui; max-width: 800px; margin: 40px auto; padding: 20px; background: #1a1a2e; color: #eee; }
+        h1 { color: #00d4aa; }
+        .audio-card { background: #16213e; padding: 20px; margin: 20px 0; border-radius: 10px; }
+        .text { color: #a8dadc; font-style: italic; margin-bottom: 10px; }
+        audio { width: 100%; }
+        .info { color: #888; font-size: 0.9em; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Eryx Swahili TTS v1 - Test Audio</h1>
+    <p>Speaker embeddings from XTTS-v2 trained on OpenSLR SLR25 Swahili corpus</p>
+
+    <div class="audio-card">
+        <div class="text">"Habari yako, mimi ni msaidizi wa Kiswahili."</div>
+        <audio controls src="checkpoints/test_outputs/swahili_test_1.wav"></audio>
+        <div class="info">Test 1 - Greeting</div>
+    </div>
+
+    <div class="audio-card">
+        <div class="text">"Karibu sana katika Eryx Labs."</div>
+        <audio controls src="checkpoints/test_outputs/swahili_test_2.wav"></audio>
+        <div class="info">Test 2 - Welcome message</div>
+    </div>
+
+    <div class="audio-card">
+        <div class="text">"Teknolojia ya akili bandia inabadilisha dunia."</div>
+        <audio controls src="checkpoints/test_outputs/swahili_test_3.wav"></audio>
+        <div class="info">Test 3 - AI statement</div>
+    </div>
+
+    <hr style="border-color: #333; margin: 40px 0;">
+    <p style="color: #666;">
+        Model: <a href="https://huggingface.co/Engeryx/eryx-swahili-tts-v1" style="color: #00d4aa;">HuggingFace</a> |
+        Code: <a href="https://github.com/EryxLabs/swahili-tts" style="color: #00d4aa;">GitHub</a>
+    </p>
+</body>
+</html>
