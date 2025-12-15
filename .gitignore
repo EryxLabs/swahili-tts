@@ -1,0 +1,39 @@
+# Data files
+data/
+*.wav
+*.mp3
+*.flac
+
+# Model files
+checkpoints/
+*.pt
+*.pth
+*.bin
+*.onnx
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+.env
+*.egg-info/
+
+# Logs
+logs/
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+*.tmp
+.cache/

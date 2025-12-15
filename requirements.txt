@@ -1,0 +1,34 @@
+# Eryx Labs - Swahili TTS Requirements
+# Fine-tuning XTTS-v2 for Swahili voice synthesis
+
+# Core TTS library
+TTS>=0.22.0
+
+# Audio processing
+librosa>=0.10.0
+soundfile>=0.12.0
+scipy>=1.11.0
+pydub>=0.25.0
+
+# Data handling
+datasets>=2.14.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Training utilities
+torch>=2.0.0
+torchaudio>=2.0.0
+
+# Progress and logging
+tqdm>=4.65.0
+rich>=13.0.0
+loguru>=0.7.0
+
+# Configuration
+pyyaml>=6.0.0
+
+# Audio format conversion
+ffmpeg-python>=0.2.0
+
+# Optional: For audio augmentation
+audiomentations>=0.33.0

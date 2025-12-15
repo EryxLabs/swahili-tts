@@ -1,0 +1,93 @@
+# Eryx Labs - Swahili TTS Configuration
+# Fine-tuning XTTS-v2 for fluent Swahili voice synthesis
+
+project:
+  name: "eryx-swahili-tts"
+  version: "1.0.0"
+  description: "Swahili Text-to-Speech model for natural voice synthesis"
+  organization: "Eryx Labs"
+  website: "https://eryxlabs.co.ke"
+
+# Model Configuration
+model:
+  # XTTS-v2: Best for cross-lingual fine-tuning
+  base_model: "tts_models/multilingual/multi-dataset/xtts_v2"
+
+  # Alternative models (if XTTS doesn't work)
+  alternatives:
+    - "tts_models/multilingual/multi-dataset/bark"
+    - "tts_models/en/ljspeech/tacotron2-DDC"
+
+# Data Configuration
+data:
+  # Primary: Mozilla Common Voice Swahili
+  source: "mozilla-foundation/common_voice_17_0"
+  language: "sw"  # Swahili language code
+
+  # Audio settings
+  sample_rate: 22050
+  max_audio_length: 15.0  # seconds
+  min_audio_length: 1.0   # seconds
+
+  # Split ratios
+  train_split: 0.9
+  val_split: 0.1
+
+  # Target hours for fine-tuning
+  target_hours: 10  # Using ~10 hours from available 15
+
+# Training Configuration
+training:
+  # Fine-tuning parameters for XTTS-v2
+  batch_size: 4
+  gradient_accumulation_steps: 4
+  effective_batch_size: 16
+
+  # Learning rate (lower for fine-tuning)
+  learning_rate: 5.0e-5
+
+  # Training duration
+  epochs: 50
+  max_steps: 10000
+
+  # Checkpointing
+  save_steps: 500
+  eval_steps: 250
+  logging_steps: 50
+
+  # Mixed precision
+  mixed_precision: true
+
+  # Early stopping
+  early_stopping_patience: 5
+
+# Evaluation Configuration
+evaluation:
+  # Test sentences in Swahili
+  test_sentences:
+    - "Habari! Karibu Eryx Labs."
+    - "Jina langu ni Eryx, msaidizi wako wa Kiswahili."
+    - "Leo tutajifunza jinsi ya kuanzisha biashara."
+    - "Afya njema ni utajiri mkubwa."
+    - "Elimu ni ufunguo wa maisha bora."
+    - "Teknolojia inabadilisha maisha yetu kila siku."
+    - "Asante sana kwa kunisikiliza."
+    - "Tutaonana tena hivi karibuni!"
+
+  # Voice reference for cloning (will be selected from best samples)
+  reference_audio: null
+
+# Output Configuration
+output:
+  model_name: "eryx-swahili-tts-v1"
+  checkpoint_dir: "./checkpoints"
+  log_dir: "./logs"
+  export_dir: "./models"
+
+  # Audio output format
+  output_format: "wav"
+  output_sample_rate: 22050
+
+# Budget Estimate
+# XTTS fine-tuning is done locally (free, uses local GPU)
+# Only costs: Time + electricity
